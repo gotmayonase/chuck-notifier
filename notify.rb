@@ -4,7 +4,7 @@ require 'httparty'
 require 'terminal-notifier'
 
 loop do
-  response = HTTParty.get('http://api.icndb.com/jokes/random?limitTo=nerdy')
+  response = HTTParty.get('http://api.icndb.com/jokes/random?exclude=[explicit]')
   joke = response['value']['joke']
   cmd = "terminal-notifier -appIcon #{Dir.pwd}/chuck-logo.png -message \"#{joke}\" -execute \"say \\\"#{joke}\\\"\" -title \"Chuck Facts\""
   `#{cmd}`
